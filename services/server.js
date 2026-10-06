@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3333
 app.use(express.json())
 
 
-app.use(express.static(path.join(__dirname,'../page')))
+app.use(express.static(path.join(__dirname,'../Page')))
 
 
 app.post('/usuarios', async (req,res) =>{
@@ -38,7 +38,7 @@ app.post('/usuarios', async (req,res) =>{
 app.get('/usuarios', async (req,res)=>{
     try{
         const[usuarios]=await pool.execute(
-            ` SELECT id, nome, criado_em FROM usuarios ORDER BY id DESC`
+            ` SELECT id, nome, email, criado_em FROM usuarios ORDER BY id DESC`
         )
         res.json(usuarios)
     }catch(error){
