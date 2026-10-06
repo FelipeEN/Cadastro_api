@@ -4,12 +4,12 @@ const path = require('path')
 const pool = require('../database/database')
 
 const app = express()
-const PORT = process.env.PORT || 3309
+const PORT = process.env.PORT || 3333
 
 app.use(express.json())
 
 
-app.use(express.static(path.join(__dirname,'public')))
+app.use(express.static(path.join(__dirname,'../page')))
 
 
 app.post('/usuarios', async (req,res) =>{
